@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PE_PROJECT_SETTINGS_DOCUMENTATION>
+  <PE_product_version v="version 10.5 for Freescale Microcontrollers" />
+  <PE_core_version v="Processor Expert Version 0521" />
+  <CPU_Bean name="Cpu" type="MKL46Z256MC4">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="Cpu" />
+      <CPU_type v="MKL46Z256VMC4" />
+      <Initialization_priority v="interrupts enabled" />
+      <Watchdog_disable v="yes" />
+      <group name="Internal peripherals">
+        <EmptySection_DummyValue />
+      </group>
+      <group name="Low power mode settings">
+        <EmptySection_DummyValue />
+      </group>
+      <list name="Clock configurations" v="1">
+        <group name="Clock configuration 0">
+          <boolgroup name="Very low power mode" v="Disabled" />
+          <enumgroup name="Clock source setting" v="configuration 0">
+            <MCG_mode v="PEE" />
+            <MCG_output__MHz_ v="96" />
+            <MCGIRCLK_clock__MHz_ v="0.032768" />
+            <OSCERCLK_clock__MHz_ v="8" />
+            <ERCLK32K__clock__MHz_ v="0.001" />
+            <MCGFFCLK__kHz_ v="31.25" />
+          </enumgroup>
+          <group name="System clocks">
+            <Core_clock_prescaler v="Auto select" />
+            <Core_clock v="8" />
+            <Bus_clock_prescaler v="Auto select" />
+            <Bus_clock v="2" />
+            <enumgroup name="PLL/FLL clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="48" />
+            </enumgroup>
+            <enumgroup name="TPM clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="48" />
+            </enumgroup>
+          </group>
+        </group>
+      </list>
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <Event_module_name v="Events" />
+    </Events>
+    <Compiler v="GNU C Compiler" />
+    <CompilerProperties>
+      <Compiler v="GNU C Compiler" />
+      <enumgroup name="Unhandled vectors" v="Own handler for every">
+        <Unhandled_int_code>
+          <StrgList><![CDATA[/* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
+PE_DEBUGHALT();
+]]></StrgList>
+        </Unhandled_int_code>
+      </enumgroup>
+      <group name="User initialization">
+        <User_data_declarations>
+          <StrgList></StrgList>
+        </User_data_declarations>
+        <User_code_before_PE_initialization>
+          <StrgList></StrgList>
+        </User_code_before_PE_initialization>
+        <User_code_after_PE_initialization>
+          <StrgList></StrgList>
+        </User_code_after_PE_initialization>
+      </group>
+      <boolgroup name="Generate debugger files" v="no" />
+      <group name="Startup">
+        <Add_startup_file v="yes" />
+      </group>
+      <boolgroup name="Generate linker file" v="yes">
+        <Stack_size v="1024" />
+        <Heap_size v="0" />
+        <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
+        <Default_memory_for_interrupts v="INTERNAL FLASH" />
+        <Default_memory_for_code v="INTERNAL FLASH" />
+        <Default_memory_for_data v="INTERNAL RAM" />
+        <list name="ROM/RAM Areas" v="4">
+          <group name="MemoryArea0">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_interrupts" />
+              <Qualifier v="RX" />
+              <Address v="0" />
+              <Size v="192" />
+            </boolgroup>
+          </group>
+          <group name="MemoryArea1">
+            <boolgroup name="ROM/RAM Area" v="Disabled" />
+          </group>
+          <group name="MemoryArea2">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_text" />
+              <Qualifier v="RX" />
+              <Address v="1040" />
+              <Size v="261104" />
+            </boolgroup>
+          </group>
+          <group name="MemoryArea3">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_data" />
+              <Qualifier v="RW" />
+              <Address v="536862720" />
+              <Size v="32768" />
+            </boolgroup>
+          </group>
+        </list>
+      </boolgroup>
+    </CompilerProperties>
+  </CPU_Bean>
+  <Bean name="SegLCD1" type="SegLCD_LDD">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="SegLCD1" />
+      <Segment_LCD_module v="LCD" />
+      <boolgroup name="Interrupt service/event" v="Disabled" />
+      <Stop_in_Wait_mode v="no" />
+      <Stop_in_Stop_mode v="no" />
+      <group name="Power supply">
+        <LCD_operation_voltage v="3V" />
+        <Power_mode_selection v="Charge Pump" />
+        <Voltage_supply_control v="Drive VLL3 internally from VDD" />
+        <boolgroup name="Charge pump" v="Enabled">
+          <Charge_pump_clock_adjust v="Intermediate (faster) clock" />
+          <Charge_pump_clock v="2.605 kHz" />
+          <boolgroup name="Voltage regulator" v="Disabled" />
+        </boolgroup>
+        <Bias_voltage_VLL1 v="(VLL3 * 1/3) = 0.99V" />
+        <Bias_voltage_VLL2 v="(VLL3 * 2/3) = 1.98V" />
+        <Bias_voltage_VLL3 v="Connect internally to VDD(must be 3V)" />
+      </group>
+      <Blink_rate_bits_value v="0" />
+      <Blink_rate v="7.632 Hz" />
+      <LCD_frame_frequency v="61.062 Hz" />
+      <Base_clock v="1.024 kHz" />
+      <boolgroup name="Fault detect" v="Disabled" />
+      <list name="Backplane pins" v="4">
+        <group name="Backplane pin0">
+          <Backplane_pin v="LCD_P40/PTD0/SPI0_PCS0/TPM0_CH0" />
+        </group>
+        <group name="Backplane pin1">
+          <Backplane_pin v="LCD_P52/PTE4/SPI1_PCS0" />
+        </group>
+        <group name="Backplane pin2">
+          <Backplane_pin v="LCD_P19/PTB23" />
+        </group>
+        <group name="Backplane pin3">
+          <Backplane_pin v="LCD_P18/PTB22" />
+        </group>
+      </list>
+      <list name="Frontplane pins" v="8">
+        <group name="Frontplane pin0">
+          <Frontplane__pin v="LCD_P37/PTC17" />
+        </group>
+        <group name="Frontplane pin1">
+          <Frontplane__pin v="LCD_P17/PTB21" />
+        </group>
+        <group name="Frontplane pin2">
+          <Frontplane__pin v="LCD_P7/PTB7" />
+        </group>
+        <group name="Frontplane pin3">
+          <Frontplane__pin v="LCD_P8/PTB8/SPI1_PCS0/EXTRG_IN" />
+        </group>
+        <group name="Frontplane pin4">
+          <Frontplane__pin v="LCD_P53/PTE5" />
+        </group>
+        <group name="Frontplane pin5">
+          <Frontplane__pin v="LCD_P38/PTC18" />
+        </group>
+        <group name="Frontplane pin6">
+          <Frontplane__pin v="LCD_P10/PTB10/SPI1_PCS0" />
+        </group>
+        <group name="Frontplane pin7">
+          <Frontplane__pin v="LCD_P11/PTB11/SPI1_SCK" />
+        </group>
+      </list>
+      <group name="Initialization">
+        <Enable_in_init__code v="yes" />
+        <group name="Event mask">
+          <OnFaultDetectComplete v="Disabled" />
+        </group>
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
+      <Deinit v="generate code" />
+      <Enable v="don&amp;apos;t generate code" />
+      <Disable v="don&amp;apos;t generate code" />
+      <SetEventMask v="don&amp;apos;t generate code" />
+      <GetEventMask v="don&amp;apos;t generate code" />
+      <GetEventStatus v="generate code" />
+      <SetFrontplaneData v="generate code" />
+      <GetFrontplaneData v="generate code" />
+      <SetAlternateFrontplaneData v="don&amp;apos;t generate code" />
+      <GetAlternateFrontplaneData v="don&amp;apos;t generate code" />
+      <SetBlinking v="generate code" />
+      <SetBlank v="generate code" />
+      <StartFaultDetectFrame v="don&amp;apos;t generate code" />
+      <GetFaultDetectCounter v="don&amp;apos;t generate code" />
+      <SetOperationMode v="don&amp;apos;t generate code" />
+      <GetDriverState v="don&amp;apos;t generate code" />
+    </Methods>
+    <Events>
+      <Event_module_name v="Events" />
+      <event name="OnFaultDetectComplete" v="don&amp;apos;t generate code" />
+    </Events>
+  </Bean>
+</PE_PROJECT_SETTINGS_DOCUMENTATION>
+
